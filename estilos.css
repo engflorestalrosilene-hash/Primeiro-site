@@ -1,0 +1,170 @@
+/* estilos.css */
+body {
+    margin: 0; /* Remove a margem padrão do navegador para o corpo da página */
+    font-family: Arial, Helvetica, sans-serif; /* Define a fonte padrão para o corpo da página */
+}
+
+/* --- Estilos do Menu Principal --- */
+
+.menu-principal ul {
+    list-style: none; /* Remove os marcadores (bolinhas) da lista */
+    margin: 0; /* Remove a margem externa da lista */
+    padding: 0; /* Remove o preenchimento interno da lista */
+    
+    /* --- Flexbox para alinhar os itens do menu --- */
+    display: flex; /* Ativa o Flexbox, colocando os itens lado a lado */
+    justify-content: center; /* Centraliza os itens do menu horizontalmente */
+    
+    background-color: #ddd; /* Define uma cor de fundo cinza para a barra de menu */
+}
+
+.menu-principal a {
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    color: #333; /* Define a cor do texto dos links */
+    display: block; /* Faz o link ocupar todo o espaço do seu contêiner (li) */
+    padding: 20px 25px; /* Adiciona preenchimento interno (20px em cima/baixo, 25px nos lados) */
+    font-weight: bold; /* Deixa o texto em negrito */
+    text-transform: uppercase; /* Transforma todo o texto para maiúsculas */
+    font-size: 14px; /* Define o tamanho da fonte */
+}
+
+/* Efeito ao passar o mouse sobre o link do menu */
+.menu-principal a:hover {
+    background-color: #3498db; /* Muda a cor de fundo ao passar o mouse */
+    color: white; /* Muda a cor do texto para branco */
+}
+
+/* --- Estilos da Seção Hero (Banner Principal) --- */
+
+.hero {
+    /* --- 1. Tamanho --- */
+    /* 90vh = 90% da altura da tela (viewport height). Isso faz o hero quase preencher a tela */
+    min-height: 90vh; 
+
+    /* --- 2. A Imagem de Fundo (A "Receita de Bolo") --- */
+    background-image: url(img/bg.jpg); /* Define a imagem de fundo */
+    background-repeat: no-repeat; /* Para a imagem não se repetir */
+    background-size: cover;       /* Faz a imagem cobrir todo o espaço, sem distorcer */
+    background-position: center;  /* Mantém o centro da imagem sempre visível */
+
+    /* --- 3. A MÁGICA DA CENTRALIZAÇÃO (FLEXBOX) --- */
+    /* Este é o "trio" para centralização perfeita de um item filho: */
+    display: flex;             /* Ativa o Flexbox no contêiner "pai" */
+    justify-content: center; /* Centraliza o "filho" no eixo Horizontal */
+    align-items: center;     /* Centraliza o "filho" no eixo Vertical */
+    
+    color: white; /* Define a cor do texto padrão para branco (para os elementos filhos) */
+}
+
+/* Estilo da caixa de conteúdo dentro do Hero */
+.hero-content {
+    text-align: center; /* Centraliza o texto DENTRO da caixa */
+    max-width: 600px; /* Impede que o texto fique largo demais em telas grandes */
+    
+    /* Efeito "Overlay": Fundo preto com 50% de transparência.
+       rgba(0, 0, 0, 0.5) = (Red, Green, Blue, Alpha/Opacidade)
+       Isso garante que o texto seja legível em cima de qualquer imagem.
+    */
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 40px; /* Adiciona um respiro (preenchimento) interno */
+    border-radius: 8px; /* Cantos arredondados para suavizar o visual */
+}
+
+/* Estilo do Título Principal (H1) */
+.hero-content h1 {
+    font-size: 48px; /* Tamanho grande para o título principal */
+    margin-top: 0; /* Remove a margem superior padrão do H1 */
+    margin-bottom: 15px; /* Adiciona um espaço abaixo do título */
+}
+
+/* Estilo do Subtítulo (Parágrafo) */
+.hero-content p {
+    font-size: 20px; /* Tamanho de fonte para o texto de apoio */
+    margin-bottom: 30px; /* Adiciona um espaço maior abaixo do parágrafo, antes do botão */
+}
+
+/* Estilo do Botão de Ação (Call to Action) */
+.hero-button {
+    display: inline-block; /* Permite definir padding e margin, mas se comporta como um item de linha */
+    background-color: #3498db; /* O mesmo azul do hover do menu, para consistência */
+    color: white; /* Cor do texto do botão */
+    padding: 15px 30px; /* Preenchimento interno para criar um botão "gordinho" */
+    text-decoration: none; /* Remove o sublinhado do link */
+    font-weight: bold; /* Texto em negrito */
+    border-radius: 5px; /* Cantos levemente arredondados */
+    font-size: 18px; /* Tamanho da fonte do botão */
+    
+    /* Efeito de transição suave para a mudança de cor */
+    transition: background-color 0.3s ease; /* Anima a mudança da cor de fundo em 0.3 segundos */
+}
+
+/* Efeito ao passar o mouse sobre o botão */
+.hero-button:hover {
+    background-color: #2980b9; /* Azul um pouco mais escuro para dar feedback visual */
+}
+
+
+/* --- Estilos da Seção "Features" (Características) --- */
+
+.features-container {
+    /* 1. Ativa o Flexbox no container pai para alinhar os cards */
+    display: flex; 
+
+    /* 2. (NOVA PROPRIEDADE!) O 'gap' é a forma moderna de
+       adicionar um "vão" (espaçamento) de 20px ENTRE
+       cada um dos itens filhos. É muito mais fácil que usar margin! */
+    gap: 20px;
+
+    /* 3. Apenas para dar um respiro geral na seção */
+    padding: 60px 40px; /* Preenchimento interno da seção (60px em cima/baixo, 40px nos lados) */
+    background-color: #f4f4f4; /* Um cinza claro para diferenciar do Hero e do rodapé */
+}
+
+/* Estilo de cada Card de Característica */
+.feature-card {
+    /* 1. (REFORÇO!) flex: 1; diz ao item: "Ocupe 1 parte igual
+       do espaço disponível". Como temos 3 itens com flex: 1,
+       o espaço será dividido em 3 partes iguais para eles. */
+    flex: 1; 
+
+    /* 2. Estilizando o card (Box Model!) */
+    background-color: white; /* Fundo branco para o card */
+    padding: 30px; /* Preenchimento interno do card */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Uma sombra leve para dar profundidade */
+    text-align: center; /* Centraliza todo o conteúdo do card */
+}
+
+/* Efeito ao passar o mouse sobre o card */
+.feature-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra um pouco mais forte ao passar o mouse */
+    transform: translateY(-5px); /* Leve elevação vertical para destacar o card */
+    transition: all 0.3s ease; /* Transição suave para todos os efeitos (sombra e transformação) */
+}
+
+/* Estilo do título dentro do card */
+.feature-card h3 {
+    font-size: 24px; /* Tamanho da fonte para o título do card */
+    color: #333; /* Cor escura para o texto */
+    margin-top: 0; /* Remove margem superior */
+    margin-bottom: 15px; /* Espaço abaixo do título */
+}
+
+/* Estilo do parágrafo dentro do card */
+.feature-card p {
+    font-size: 16px; /* Tamanho padrão para o texto descritivo */
+    color: #666; /* Cinza um pouco mais claro para o texto */
+    line-height: 1.6; /* Altura da linha para melhor legibilidade (1.6 vezes o tamanho da fonte) */
+}
+element.style {
+}
+.sobre-nos {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 60px 40px;
+}
+.sobre-imagem {
+  padding-left: 50px;
+  flex: 1;
+}
