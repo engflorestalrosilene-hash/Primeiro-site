@@ -156,6 +156,7 @@ body {
     color: #666; /* Cinza um pouco mais claro para o texto */
     line-height: 1.6; /* Altura da linha para melhor legibilidade (1.6 vezes o tamanho da fonte) */
 }
+/* Estilo do elemento */
 element.style {
 }
 .sobre-nos {
